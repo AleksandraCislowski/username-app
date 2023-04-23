@@ -7,7 +7,7 @@ const Form = () => {
       <input type='text'></input>
       <label>Age (Years)</label>
       <input type='number'></input>
-      <button>Add User</button>
+      <button className='button'>Add User</button>
     </div>
   );
 };
