@@ -1,0 +1,16 @@
+body {
+  background: rgb(37, 37, 37);
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  width: 550px;
+  background: white;
+  padding: 15px;
+  margin: 50px;
+  border-radius: 15px;
+}
