@@ -2,11 +2,10 @@ import "./UserList.css";
 
 const UserList = (props) => {
   return (
-    <div className='list-item'>
+    <div className='user-list'>
       {props.users?.map((user) => (
-        <div key={user.name}>
-          <p>{user.name}</p>
-          <p>{user.age}</p>
+        <div className='list-item' key={user.name}>
+          {user.name} ({user.age} years old)
         </div>
       ))}
     </div>

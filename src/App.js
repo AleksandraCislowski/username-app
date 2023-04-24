@@ -10,9 +10,9 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='app'>
       <Form addUser={addUser} />
-      <UserList users={users} />
+      {users.length > 0 && <UserList users={users} />}
     </div>
   );
 }

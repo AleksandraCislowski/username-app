@@ -1,7 +1,13 @@
-.list-item {
+.user-list {
   background: white;
   border-radius: 15px;
   width: 550px;
   padding: 10px;
-  margin: 50px;
+  margin: 10px;
+}
+
+.list-item {
+  margin: 10px;
+  border: 1px solid gray;
+  padding: 5px 10px;
 }

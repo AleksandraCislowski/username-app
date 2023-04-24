@@ -8,4 +8,12 @@ html {
 
 body {
   margin: 0;
+  background: rgb(37, 37, 37);
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
