@@ -1,9 +1,9 @@
 import "./Modal.css";
 
-function Modal({ closeModal }) {
+function Modal({ closeModal, error }) {
   return (
     <div className='modal'>
-      <p>Please enter a valid name and age (non-empty values)</p>
+      <p>{error}</p>
       <button onClick={closeModal}>Okay</button>
     </div>
   );

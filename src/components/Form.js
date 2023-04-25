@@ -7,15 +7,11 @@ const Form = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  function Error() {
-    if (enteredName.length === 0 || enteredAge.length === 0) {
-      setModalIsOpen(true);
-    } else setModalIsOpen(false);
-  }
+  const [error, setError] = useState("");
 
   function closeModal() {
     setModalIsOpen(false);
+    setError("");
   }
 
   const nameChangeHandler = (event) => {
@@ -25,16 +21,26 @@ const Form = (props) => {
   const ageChangeHandler = (event) => {
     setEnteredAge(event.target.value);
   };
+
   const submitHandler = (event) => {
     event.preventDefault();
-
-    const userData = {
-      name: enteredName,
-      age: enteredAge,
-    };
-    props.addUser(userData);
-    setEnteredName("");
-    setEnteredAge("");
+    if (enteredName.length === 0 || enteredAge.length === 0) {
+      setError("Please enter a valid name and age (non-empty values)");
+      setModalIsOpen(true);
+    } else {
+      if (enteredAge <= 0) {
+        setError("Please enter a valid age (> 0)");
+        setModalIsOpen(true);
+      } else {
+        const userData = {
+          name: enteredName,
+          age: enteredAge,
+        };
+        props.addUser(userData);
+        setEnteredName("");
+        setEnteredAge("");
+      }
+    }
   };
   return (
     <form onSubmit={submitHandler}>
@@ -48,17 +54,15 @@ const Form = (props) => {
         <label>Age (Years)</label>
         <input
           type='number'
-          min='0'
-          max='99'
           step='1'
           value={enteredAge}
           onChange={ageChangeHandler}
         ></input>
-        <button className='button' type='submit' onClick={Error}>
+        <button className='button' type='submit'>
           Add User
         </button>
       </div>
-      {modalIsOpen && <Modal closeModal={closeModal} />}
+      {modalIsOpen && <Modal closeModal={closeModal} error={error} />}
       {modalIsOpen && <Backdrop closeModal={closeModal} />}
     </form>
   );
