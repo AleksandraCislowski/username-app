@@ -24,11 +24,11 @@ const Form = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if (enteredName.length === 0 || enteredAge.length === 0) {
+    if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
       setError("Please enter a valid name and age (non-empty values)");
       setModalIsOpen(true);
     } else {
-      if (enteredAge <= 0) {
+      if (+enteredAge <= 0) {
         setError("Please enter a valid age (> 0)");
         setModalIsOpen(true);
       } else {
