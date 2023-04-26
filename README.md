@@ -1,6 +1,6 @@
 # Username application
 
-This project was created to learn more about React. It's a  simple application where you can type a username and it's age, and create a list of all users. It also prevents you from putting an incorect data, for example the age under 0 years.
+This project was created to learn more about React. It's a  simple application where you can type a username and it's age, and create a list of all users. It also prevents you from putting an incorect data, for example the age under 0 years. I have learned how to create and use simple modals as well.
 
 ## Available Scripts
 
